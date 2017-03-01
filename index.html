@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="PinterestApp">
+<div ng-view></div>
 
 <h1>hoardist</h1>
 
@@ -14,24 +15,65 @@
 
 <!--script list-->
 
-<!-- node modules -->
+<!-- Bootstrap script tag -->
+<script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- angular scripts -->
 <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- firebase script -->
 <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
 
 <!-- app.js goes before factories and controllers -->
 <script type="text/javascript" src="app/app.js"></script>
 
-<!-- firebase stuff -->
+<!-- firebase API -->
 <script type="text/javascript" src="app/values/fb-creds.js"></script>
 
-<!-- factories list -->
+<!--////////////////////// factories list ////////////////////////////-->
+<!-- user-->
 <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+<!-- nav -->
+<script type="text/javascript" src="app/factories/NavFactory.js"></script>
+<!-- edit -->
+<script type="text/javascript" src="app/factories/HoardEditFactory.js"></script>
+<script type="text/javascript" src="app/factories/ThingEditFactory.js"></script>
+<!-- new -->
+<script type="text/javascript" src="app/factories/NewHoardFactory.js"></script>
+<script type="text/javascript" src="app/factories/NewThingFactory.js"></script>
+<!-- edit -->
+<script type="text/javascript" src="app/factories/ThingEditFactory.js"></script>
+<script type="text/javascript" src="app/factories/HoardEditFactory.js"></script>
+<!-- view all -->
+<script type="text/javascript" src="app/factories/ViewAllHoardsFactory.js"></script>
+<script type="text/javascript" src="app/factories/ViewAllThingsFactory.js"></script>
+<!-- view single -->
+<script type="text/javascript" src="app/factories/ViewHoardFactory.js"></script>
+<script type="text/javascript" src="app/factories/ViewThingFactory.js"></script>
 
-<!-- controllers list -->
+
+<!--//////////////////// controllers list //////////////////////// -->
+<!-- User ctrl -->
 <script type="text/javascript" src="app/controllers/UserCtrl.js"></script>
-<script type="text/javascript" src="app/controllers/UserDetailsCtrl.js"></script>
+<!-- nav ctrl -->
+<script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+
+<!-- VIEW ALL Hoards/ Things ctrls -->
+<script type="text/javascript" src="app/controllers/ViewAllHoardsCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/ViewAllThingsCtrl.js"></script>
+<!-- View (single) Hoard/ Thing ctrl -->
+<script type="text/javascript" src="app/controllers/ViewHoardCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/ViewThingCtrl.js"></script>
+<!-- EDIT hoard/ thing ctrls -->
+<script type="text/javascript" src="app/controllers/HoardEditCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/ThingEditCtrl.js"></script>
+<!-- NEW hoard and thing ctrls-->
+<script type="text/javascript" src="app/controllers/NewThingCtrl.js"></script>
+<script type="text/javascript" src="app/controllers/NewHoardCtrl.js"></script>
+
+
+
+
 	
 </body>
 </html>
