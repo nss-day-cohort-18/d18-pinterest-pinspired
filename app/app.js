@@ -55,7 +55,7 @@ app.config(function($routeProvider) {
     controller: 'ThingEditCtrl',
     resolve: {isAuth}
   }).
-  when('/items/list',{
+  when('/',{
     // goes to ng-view
     templateUrl: "partials/view-all-hoards.html",
     controller: 'ViewAllHoardsCtrl',
