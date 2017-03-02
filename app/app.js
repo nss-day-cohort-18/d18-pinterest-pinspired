@@ -1,30 +1,30 @@
 "use strict";
-
 var app = angular.module("PinterestApp", ["ngRoute"]);
-
 //used to authenticate user when navigating to other views
 let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
   // console.log("running isAuth");
-	AuthFactory.isAuthenticated()
-	.then ( (userExists) => {
+    AuthFactory.isAuthenticated()
+    .then ( (userExists) => {
     console.log("userExists", userExists);
-		if (userExists){
+        if (userExists){
       console.log("Authenticated, go ahead.");
-			resolve();
-		}else {
+            resolve();
+        }else {
       console.log("Authentication rejected, go away.");
-			reject();
-		}
-	});
+            reject();
+        }
+    });
 });
-
 //setup routing to other views
 app.config(function($routeProvider) {
   $routeProvider.
+  // When user gets to page, nothing shows,
+  // user needs to be logged in
     when('/', {
       templateUrl: 'partials/login.html',
       controller: "UserCtrl"
     }).
+    // login page/ pop up?
     when('/login', {
       templateUrl: 'partials/login.html',
       controller: "UserCtrl"
@@ -36,36 +36,59 @@ app.config(function($routeProvider) {
   }).
   when('/items/list',{
     // goes to ng-view
-    templateUrl: "partials/item-list.html",
-    controller: 'ItemListCtrl',
+    templateUrl: "partials/view-all-things.html",
+    controller: 'ViewAllThingsCtrl',
     resolve: {isAuth}
   }).
-  when('/items/new', {
-    templateUrl: "partials/item-form.html",
-    controller: 'ItemNewCtrl',
-    resolve: {isAuth}
+  when('/items/newthing', {
+    templateUrl: "partials/new-thing.html",
+    controller: 'NewThingCtrl'
+    // resolve: {isAuth}
   }).
   when('/items/:itemId', {
-    templateUrl: "partials/item-details.html",
-    controller: 'ItemViewCtrl',
+    templateUrl: "partials/view-thing.html",
+    controller: 'ViewThingCtrl',
     resolve: {isAuth}
   }).
   when('/items/:itemId/edit', {
-    templateUrl: 'partials/item-form.html',
-    controller: 'ItemEditCtrl',
+    templateUrl: 'partials/thing-edit.html',
+    controller: 'ThingEditCtrl',
+    resolve: {isAuth}
+  }).
+  when('/items/list',{
+    // goes to ng-view
+    templateUrl: "partials/view-all-hoards.html",
+    controller: 'ViewAllHoardsCtrl',
+    resolve: {isAuth}
+  }).
+  when('/items/newhoard', {
+    templateUrl: "partials/new-hoard.html",
+    controller: 'NewHoardCtrl',
+    resolve: {isAuth}
+  }).
+  when('/items/:itemId', {
+    templateUrl: "partials/view-hoard.html",
+    controller: 'ViewHoardCtrl',
+    resolve: {isAuth}
+  }).
+  when('/items/:itemId/edit', {
+    templateUrl: 'partials/hoard-edit.html',
+    controller: 'HoardEditCtrl',
+    resolve: {isAuth}
+  }).
+  when('/items/:itemId/edit', {
+    templateUrl: 'partials/view-all-hoards.html',
+    controller: 'ViewHoardCtrl',
     resolve: {isAuth}
   }).
   // You have to login, before showing any lists to user
   otherwise('/');
 });
-
-
-
 app.run(($location, FBCreds) => {
-	let creds = FBCreds;
-	let authConfig = {
-		apiKey: creds.apiKey,
-		authDomain: creds.authDomain
-	};
-	firebase.initializeApp(authConfig);
+    let creds = FBCreds;
+    let authConfig = {
+        apiKey: creds.apiKey,
+        authDomain: creds.authDomain
+    };
+    firebase.initializeApp(authConfig);
 });
