@@ -1,0 +1,13 @@
+<h1>VIEW ALL HOARDS</h1>
+<!-- TODO: Repeat over our todo list items and setup filtering by search term -->
+  <div ng-repeat="hoard in hoards | filter: searchText.search">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <!-- <div class="col-xs-1"><input type="checkbox" name=""/></div> -->
+        <div class="col-xs-7">{{hoard.userId}}
+        </div>
+        <div class="col-xs-1"></div>
+        <!-- <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(hoard.id)">X</button></div> -->
+      </div>
+    </div>
+  </div>

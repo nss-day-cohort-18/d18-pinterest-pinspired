@@ -13,13 +13,7 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
       // console.log("user list:",`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
       $http.get(`https://charm-aadb5.firebaseio.com/things.json`)
       .then((pinsObject) => {
-        // get keys for all of the items
-        // let itemCollection = itemObject.data;
-        // console.log("item collection:", itemCollection);
-        // Object.keys(itemCollection).forEach((key) => {
-        //   // setting the ID to the key
-        //   itemCollection[key].id = key;
-        //   items.push(itemCollection[key]);
+
 
         resolve(pinsObject);
         console.log(pinsObject);
@@ -28,20 +22,22 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
         reject(error);
 
       });
-    });
-   }
+    })
+    };
+    return {getThings}
+   })
   // pass new item so it can post it to firebase
-  let postNewItem = (newItem) => {
-    return $q((resolve, reject) => {
-      // Tell it to which collecton to post it to
-      $http.post(`${FBCreds.databaseURL}/items.json`,
-        JSON.stringify(newItem))
-      .then((ObjectFromFirebase) => {
-        resolve(ObjectFromFirebase);
-      })
-      // insead of success/error. with angular we use catch/error
-      .catch((error) => {
-        reject(error);
-      });
-    });
-  };
+  // let postNewItem = (newItem) => {
+  //   return $q((resolve, reject) => {
+  //     // Tell it to which collecton to post it to
+  //     $http.post(`${FBCreds.databaseURL}/items.json`,
+  //       JSON.stringify(newItem))
+  //     .then((ObjectFromFirebase) => {
+  //       resolve(ObjectFromFirebase);
+  //     })
+  //     // insead of success/error. with angular we use catch/error
+  //     .catch((error) => {
+  //       reject(error);
+  //     });
+  //   });
+  // };
