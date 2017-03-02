@@ -1,21 +1,20 @@
 "use strict";
 // EDIT PERSONAL SAVED PINS (MY THINGS)
-app.controller("ItemEditCtrl", function($scope, $location, $routeParams, ItemStorage){
-  $scope.title = "Edit Item";
+app.controller("ThingEditCtrl", function($scope, $location, $routeParams, ViewThingFactory){
+  $scope.title = "Edit Thing";
   $scope.btnText = "Submit";
-  $scope.newTask = {};
+  // $scope.newTask = {};
 
-  ItemStorage.getSingleItem($routeParams.itemId)
+  ViewThingFactory.getSingleThing($routeParams.thingId)
   .then(function successCallback(response){
-     console.log("getSingleItemresponse", response);
-      $scope.newTask = response;
+     console.log("getSingleThingresponse", response);
+      // $scope.newTask = response;
   });
     
-  $scope.addNewItem = function(){
-    ItemStorage.updateItem($routeParams.itemId, $scope.newTask)
-    .then(function successCallback(response) {
-      console.log(response);
-      $location.url("/items/list");
-    });
-  };
-});
+  // $scope.addNewItem = function(){
+  //   ItemStorage.updateItem($routeParams.itemId, $scope.newTask)
+  //   .then(function successCallback(response) {
+  //     console.log(response);
+  //     $location.url("/items/list");
+  //   });
+  });

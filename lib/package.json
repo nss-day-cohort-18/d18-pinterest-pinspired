@@ -27,8 +27,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "firebase": "^3.7.0"
-  }
+  },
+  "description": ""
 }
