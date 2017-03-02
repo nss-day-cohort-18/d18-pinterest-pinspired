@@ -20,13 +20,13 @@ app.controller("SaveThingToHoardCtrl", function($scope, $location, AuthFactory){
   // };
 
 
-  $scope.newThing = {
-    thingId: "",
-    userId: user,
-    hoardId: "",
-    URL: "",
-    title: ""
-  };
+  // $scope.newThing = {
+  //   thingId: "",
+  //   userId: user,
+  //   hoardId: "",
+  //   URL: "",
+  //   title: ""
+  // };
 
 // hoardId: ??? userId.something ???
 

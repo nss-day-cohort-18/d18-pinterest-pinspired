@@ -1,4 +1,5 @@
 "use strict";
+
 //$q is how we will make our database calls, returns promise
 app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
 
@@ -44,44 +45,3 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
       });
     });
   };
-
-  let deleteItem = (itemId) => {
-    console.log("delete in factory", itemId);
-    return $q((resolve, reject) => {
-      $http.delete(`${FBCreds.databaseURL}/items/${itemId}.json`)
-      .then((ObjectFromFirebase) => {
-        resolve(ObjectFromFirebase);
-      });
-    });
-  };
-
-  let getSingleItem = (itemId) => {
-    return $q(function(resolve, reject) {
-      $http.get(`${FBCreds.databaseURL}/items/${itemId}.json`)
-      .then(function(itemObject){
-        resolve(itemObject.data);
-      })
-      .catch(function(error){
-        reject(error);
-      });
-    });
-  };
-
-  let updateItem = (itemId, editedItem) => {
-    // Properties with leading $$ characters will be stripped since AngularJS uses these internally
-    return $q(function(resolve, reject){
-      $http.patch(`${FBCreds.databaseURL}/items/${itemId}.json`,
-        angular.toJson(editedItem))
-      .then(function(ObjectFromFirebase){
-        resolve(ObjectFromFirebase);
-      })
-      .catch(function(error){
-        reject(error);
-      });
-    });
-  };
-
-  // We will return these so they can be part of Item storage
-  return{getThings, postNewItem, deleteItem, getSingleItem, updateItem};
-
-});

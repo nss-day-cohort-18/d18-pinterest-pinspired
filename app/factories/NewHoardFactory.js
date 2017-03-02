@@ -3,7 +3,6 @@
 app.factory("NewHoardFactory", function($q, $http, FBCreds){
 
 
-
   let postNewHoard = (newHoard) => {
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/hoards.json`, 

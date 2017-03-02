@@ -34,56 +34,58 @@ app.config(function($routeProvider) {
     templateUrl: 'partials/login.html',
     controller: "UserCtrl"
   }).
-  when('/items/list',{
+  when('/hoardist/allthingslist',{
     // goes to ng-view
     templateUrl: "partials/view-all-things.html",
-    controller: 'ViewAllThingsCtrl',
-    resolve: {isAuth}
+    controller: 'ViewAllThingsCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/newthing', {
+  when('/hoardist/newthing', {
     templateUrl: "partials/new-thing.html",
     controller: 'NewThingCtrl'
     // resolve: {isAuth}
+    }).
+  when('/hoardist/newhoard', {
+    templateUrl: "partials/new-hoard.html",
+    controller: 'NewHoardCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/:itemId', {
+  when('/hoardist/:thingId', {
     templateUrl: "partials/view-thing.html",
-    controller: 'ViewThingCtrl',
-    resolve: {isAuth}
+    controller: 'ViewThingCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/:itemId/edit', {
+  when('/hoardist/:thingId/edit', {
     templateUrl: 'partials/thing-edit.html',
-    controller: 'ThingEditCtrl',
-    resolve: {isAuth}
+    controller: 'ThingEditCtrl'
+    // resolve: {isAuth}
   }).
-  when('/',{
+  when('/hoardist/allhoardslist',{
     // goes to ng-view
     templateUrl: "partials/view-all-hoards.html",
-    controller: 'ViewAllHoardsCtrl',
-    resolve: {isAuth}
+    controller: 'ViewAllHoardsCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/newhoard', {
-    templateUrl: "partials/new-hoard.html",
-    controller: 'NewHoardCtrl',
-    resolve: {isAuth}
-  }).
-  when('/items/:itemId', {
+  when('/hoardist/:hoardId', {
     templateUrl: "partials/view-hoard.html",
-    controller: 'ViewHoardCtrl',
-    resolve: {isAuth}
+    controller: 'ViewHoardCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/:itemId/edit', {
+  when('/hoardist/:hoardId/edit', {
     templateUrl: 'partials/hoard-edit.html',
-    controller: 'HoardEditCtrl',
-    resolve: {isAuth}
+    controller: 'HoardEditCtrl'
+    // resolve: {isAuth}
   }).
-  when('/items/:itemId/edit', {
-    templateUrl: 'partials/view-all-hoards.html',
-    controller: 'ViewHoardCtrl',
-    resolve: {isAuth}
+  when('hoardist/:thingId/save', {
+    templateUrl: 'partials/save-to-hoard.html',
+    controller: 'SaveThingToHoardCtrl'
+    // resolve: {isAuth}
   }).
   // You have to login, before showing any lists to user
   otherwise('/');
 });
+
+
 app.run(($location, FBCreds) => {
     let creds = FBCreds;
     let authConfig = {
