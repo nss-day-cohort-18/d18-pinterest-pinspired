@@ -9,7 +9,6 @@
 
 .headingText {
 	font-family: 'Permanent Marker', cursive;
-	text-align: left;
 	font-size: 3em;
 	margin: .5em;
 }
@@ -18,8 +17,13 @@
 .mainText {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 1.5em;
-	text-align: left;
 }
 
 
+.addCard {
+	text-align: center;
+	/*vertical-align: center;*/
+	border: .25em solid yellow;
+	padding: 2em;
 
+}

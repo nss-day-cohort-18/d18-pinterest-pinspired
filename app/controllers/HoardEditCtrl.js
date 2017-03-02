@@ -2,23 +2,19 @@
 // Our nav controller
 // Factories send info to controllers
 // Controllers cant talk to each other
-app.controller("NavCtrl", function($scope, $window, SearchTermData) {
-  $scope.searchText = SearchTermData;
-  $scope.isLoggedIn = false;
-  // Authenticate user
-  // add a listener for login/logout to show/hide nav items
-  firebase.auth().onAuthStateChanged(function(user){
-    if (user) {
-      $scope.isLoggedIn = true;
-      console.log("currentUser logged in", $scope.isLoggedIn);
+app.controller("HoardEditCtrl", function($scope, $window, ViewHoardFactory) {
 
-    } else {
-      $scope.isLoggedIn = false;
-      console.log("cuurentUser logged in", $scope.isLoggedIn);
-      // $window.location forces the page to completely reload
-      $window.location.href = "#!/login";
-    }
-    
-  });
+  //   let updateItem = (itemId, editedItem) => {
+  //   return $q(function (resolve,reject){
+  //     $http.patch(`${FBCreds.databaseURL}/items/${itemId}.json`, angular.toJson(editedItem))
+  //     .then(function(ObjectFromFirebase){
+  //       resolve(ObjectFromFirebase);
+  //     })
+  //     .catch(function(error){
+  //       reject(error);
+  //     });
+  //   });
+  // };
+
 
 });

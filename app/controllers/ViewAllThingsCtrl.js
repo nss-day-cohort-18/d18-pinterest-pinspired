@@ -18,7 +18,7 @@ console.log("HI")
     // set to false (it was set to true before)
     // $scope.showListView = false;
     // Location changes the URL
-    $location.url("/items/new");
+    $location.url("/hoardist/allthingslist");
   };
   // function for all item
   // buttons in html
@@ -45,6 +45,7 @@ console.log($scope.things)
     // $location.url("/items/list");
 
   }; $scope.allThings();
+
 
 
 });
