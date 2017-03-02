@@ -2,7 +2,7 @@
 // Our nav controller
 // Factories send info to controllers
 // Controllers cant talk to each other
-app.controller("NavCtrl", function($scope, $window, SearchTermData) {
+app.controller("ViewAllHoardsCtrl", function($scope, $window, SearchTermData) {
   $scope.searchText = SearchTermData;
   $scope.isLoggedIn = false;
   // Authenticate user
@@ -18,7 +18,7 @@ app.controller("NavCtrl", function($scope, $window, SearchTermData) {
       // $window.location forces the page to completely reload
       $window.location.href = "#!/login";
     }
-    
+
   });
 
 });

@@ -1,13 +1,13 @@
 "use strict";
 
 // Our todo controller
-app.controller("ViewAllThingsCtrl", function($scope, $location){
-
-  $scope.welcome = "hello";
-  // if listview is true, show listview in html
-  $scope.showListView = true;
-  // Setting up an empty obj for new tasks
-  $scope.newTask = {};
+app.controller("ViewAllThingsCtrl", function($scope, $location, ViewAllThingsFactory){
+console.log("HI")
+  // $scope.welcome = "hello";
+  // // if listview is true, show listview in html
+  // $scope.showListView = true;
+  // // Setting up an empty obj for new tasks
+  // $scope.newTask = {};
 
 
   // making function for the URL-- go to APP.JS
@@ -20,13 +20,31 @@ app.controller("ViewAllThingsCtrl", function($scope, $location){
     // Location changes the URL
     $location.url("/items/new");
   };
-  // function for all item 
+  // function for all item
   // buttons in html
-  $scope.allItem = function(){
-    console.log("you clicked on show all items");
+  $scope.things = [];
+  $scope.allThings = function(){
+    ViewAllThingsFactory.getThings()
+    .then((thingsObj) => {
+      console.log(thingsObj);
+      let data = thingsObj.data;
+
+    let keys = Object.keys(data)
+    for (var i = 0; i < keys.length; i++) {
+      console.log(keys);
+
+      thingsObj.data[keys[i]]
+        $scope.things.push(thingsObj.data[keys[i]])
+
+
+    }
+console.log($scope.things)
+    });
+    // console.log("you clicked on show all items");
     // $scope.showListView = true;
-    $location.url("/items/list");
-  };
+    // $location.url("/items/list");
+
+  }; $scope.allThings();
 
 
 });

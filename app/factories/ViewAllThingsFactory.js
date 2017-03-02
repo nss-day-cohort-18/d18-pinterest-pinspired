@@ -1,33 +1,34 @@
 "use strict";
 //$q is how we will make our database calls, returns promise
-app.factory("ItemStorage", ($q, $http, FBCreds) => {
+app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
 
-  let getItemList = (user) => {
+  let getThings = () => {
     console.log("this should fire");
     // Make something to hold items from firebase database
-    let items = [];
+    // let items = [];
 
     return $q((resolve, reject) => {
       // plug in url, we want it to evaluate on (user uid)
-      console.log("user list:",`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
-      $http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
-      .then((itemObject) => {
+      // console.log("user list:",`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
+      $http.get(`https://charm-aadb5.firebaseio.com/things.json`)
+      .then((pinsObject) => {
         // get keys for all of the items
-        let itemCollection = itemObject.data;
-        console.log("item collection:", itemCollection);
-        Object.keys(itemCollection).forEach((key) => {
-          // setting the ID to the key
-          itemCollection[key].id = key;
-          items.push(itemCollection[key]);
-        });
-        resolve(items);
-        console.log(items);
+        // let itemCollection = itemObject.data;
+        // console.log("item collection:", itemCollection);
+        // Object.keys(itemCollection).forEach((key) => {
+        //   // setting the ID to the key
+        //   itemCollection[key].id = key;
+        //   items.push(itemCollection[key]);
+
+        resolve(pinsObject);
+        console.log(pinsObject);
       })
       .catch((error) => {
         reject(error);
+
       });
     });
-  };
+   }
   // pass new item so it can post it to firebase
   let postNewItem = (newItem) => {
     return $q((resolve, reject) => {
@@ -81,7 +82,6 @@ app.factory("ItemStorage", ($q, $http, FBCreds) => {
   };
 
   // We will return these so they can be part of Item storage
-  return{getItemList, postNewItem, deleteItem, getSingleItem, updateItem};
+  return{getThings, postNewItem, deleteItem, getSingleItem, updateItem};
 
 });
-
