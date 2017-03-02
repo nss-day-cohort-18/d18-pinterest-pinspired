@@ -1,20 +1,19 @@
 "use strict";
-// Our nav controller
-// Factories send info to controllers
-// Controllers cant talk to each other
-app.controller("HoardEditCtrl", function($scope, $window, ViewHoardFactory) {
 
-  //   let updateItem = (itemId, editedItem) => {
-  //   return $q(function (resolve,reject){
-  //     $http.patch(`${FBCreds.databaseURL}/items/${itemId}.json`, angular.toJson(editedItem))
-  //     .then(function(ObjectFromFirebase){
-  //       resolve(ObjectFromFirebase);
-  //     })
-  //     .catch(function(error){
-  //       reject(error);
-  //     });
+app.controller("HoardEditCtrl", function($scope, $window, ViewHoardFactory, $routeParams) {
+  $scope.title = "Edit Hoard";
+  $scope.btnText = "Submit";
+  // $scope.newTask = {};
+
+  ViewHoardFactory.getSingleHoard($routeParams.hoardId)
+  .then(function successCallback(response){
+      // $scope.newTask = response;
+  });
+    
+  // $scope.addNewItem = function(){
+  //   ItemStorage.updateItem($routeParams.itemId, $scope.newTask)
+  //   .then(function successCallback(response) {
+  //     console.log(response);
+  //     $location.url("/items/list");
   //   });
-  // };
-
-
-});
+  });

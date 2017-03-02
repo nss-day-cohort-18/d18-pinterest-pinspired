@@ -29,7 +29,7 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
 
       });
     });
-   }
+   };
   // pass new item so it can post it to firebase
   let postNewItem = (newItem) => {
     return $q((resolve, reject) => {
@@ -45,3 +45,4 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
       });
     });
   };
+});

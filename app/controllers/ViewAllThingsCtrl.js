@@ -2,7 +2,7 @@
 
 // Our todo controller
 app.controller("ViewAllThingsCtrl", function($scope, $location, ViewAllThingsFactory){
-console.log("HI")
+console.log("HI");
   // $scope.welcome = "hello";
   // // if listview is true, show listview in html
   // $scope.showListView = true;
@@ -29,16 +29,16 @@ console.log("HI")
       console.log(thingsObj);
       let data = thingsObj.data;
 
-    let keys = Object.keys(data)
+    let keys = Object.keys(data);
     for (var i = 0; i < keys.length; i++) {
       console.log(keys);
 
-      thingsObj.data[keys[i]]
-        $scope.things.push(thingsObj.data[keys[i]])
+      thingsObj.data(keys[i]);
+        $scope.things.push(thingsObj.data[keys[i]]);
 
 
     }
-console.log($scope.things)
+console.log($scope.things);
     });
     // console.log("you clicked on show all items");
     // $scope.showListView = true;

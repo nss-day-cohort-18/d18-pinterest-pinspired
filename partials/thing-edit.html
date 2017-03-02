@@ -1,1 +1,19 @@
+ <div class="addCard">
+ <h5 class="headingText">{{title}}</h5>
+          <div class="mainText">
+            <div>
+            <label>update thing title:</label>
+              <input type="text" class="" placeholder="thing i like..." ng-model="newThing.title" />
+            </div>
+            <div>
+            <label>update thing URL:</label>
+              <input type="text" class="form-control" placeholder="http://..." ng-model="newThing.URL" />
+            </div>
+           
+            </div>
+            <!-- TODO: bind this button to a function -->
+            <button class="btn btn-default" ng-click="updateThing()">{{btnText}}</button>
+          </div>
+</div>
+
 
