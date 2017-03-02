@@ -1,30 +1,15 @@
- <h1>{{title}}</h1>
-          <form>
-            <div class="form-group">
-              <label>Task Description</label>
-              <!-- TODO: Hook up this form to our JS for submitting -->
-              <input type="text" class="form-control" placeholder="Some important task" ng-model="newTask.task" />
+ <h3 class="headingText">{{title}}</h3>
+          <form class="mainText">
+            <div>
+            <label>thing title:</label>
+              <input type="text" class="" placeholder="thing i like..." ng-model="newThing.title" />
             </div>
-            <div class="form-group">
-              <label>Due Date</label>
-              <input type="text" class="form-control" placeholder="01/12/17" ng-model="newTask.dueDate" />
+            <div>
+            <label>thing URL:</label>
+              <input type="text" class="form-control" placeholder="http://..." ng-model="newThing.URL" />
             </div>
-            <div class="form-group">
-              <label>Assigned To</label>
-              <input type="text" class="form-control" placeholder="cohort 18" ng-model="newTask.assignedTo" />
-            </div>
-            <div class="form-group">
-              <label>Location</label>
-              <input type="text" class="form-control" placeholder="attic" ng-model="newTask.location" />
-            </div>
-            <div class="form-group">
-              <label>Urgency</label>
-              <input type="text" class="form-control" placeholder="low" ng-model="newTask.urgency" />
-            </div>
-            <div class="form-group">
-              <label>Dependencies</label>
-              <input type="text" class="form-control" placeholder="brush chipper, monkey chow, the one ring" ng-model="newTask.dependencies" />
+           
             </div>
             <!-- TODO: bind this button to a function -->
-            <button class="btn btn-default" ng-click="addNewItem()">{{btnText}}</button>
+            <button class="btn btn-default" ng-click="addNewThing()">{{btnText}}</button>
           </form>

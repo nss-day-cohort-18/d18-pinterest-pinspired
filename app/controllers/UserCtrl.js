@@ -45,7 +45,9 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, $location){
     	AuthFactory
 	    .loginUser($scope.account)
 	    .then( () => {
-	        $window.location.href = "#!/login-details";
+	        // $window.location.href = "#!/login-details";
+	        $window.location.href = "#!/items/new";
+
 	    });
 	};
 
@@ -56,7 +58,8 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, $location){
 	    	var user = result.user.uid;
 	    	console.log("logged in user:", user);
 	    	//Once logged in, go to another view
-	    	$location.path("/login-details");
+	    	// $location.path("/login-details");
+	    	$location.path("/items/new");
 	    	$scope.$apply();
 	  	}).catch(function(error) {
 	    	// Handle the Errors.

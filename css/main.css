@@ -1,5 +1,25 @@
-h1 {
+.hoardistText {
 	font-family: 'Permanent Marker', cursive;
 	text-align: center;
-	font-size: 4em;
+	font-size: 6em;
+	margin: .5em;
+	padding: 1em;
 }
+
+
+.headingText {
+	font-family: 'Permanent Marker', cursive;
+	text-align: left;
+	font-size: 3em;
+	margin: .5em;
+}
+
+
+.mainText {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1.5em;
+	text-align: left;
+}
+
+
+

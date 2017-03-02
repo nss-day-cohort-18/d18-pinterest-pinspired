@@ -1,33 +1,32 @@
 "use strict";
 
-app.controller("ItemNewCtrl", function($scope, ItemStorage, $location, AuthFactory){
+app.controller("NewThingCtrl", function($scope, $location, AuthFactory, NewThingFactory){
   
   let user = AuthFactory.getUser();
-  $scope.title ="New Todo";
-  $scope.btnText = "Submit"; 
-
-  $scope.newTask = {
-    assignedTo: "",
-    dependencies: "",
-    dueData: "",
-    isCompleted: false,
-    location: "",
-    task: "",
-    urgency: "",
-    uid: user
-  };
+  $scope.title ="Add a new thing!";
+  $scope.btnText = "Add it!"; 
 
   // function for adding new item to new task
-  $scope.addNewItem = function(){
-    console.log("add new item");
+  $scope.addNewThing = function(){
+    console.log("add new thing");
     // created obj up on page, now using it here
-    ItemStorage.postNewItem($scope.newTask)
+    NewThingFactory.postNewThing($scope.newThing)
     .then(function(response){
-      $location.url("/items/list");
+      $location.url("/items/list"); //gets this from app.js
     });
-    console.log("you added a new item", $scope.newTask);
-    $scope.newTask = {};
+    console.log("you added a new item", $scope.newThing);
+    $scope.newThing = {}; //this re-sets form so it's blank after the user adds a new thing
 
   };
+
+
+  $scope.newThing = {
+    thingId: "",
+    userId: user,
+    title: "",
+    URL: ""
+  };
+
+
 
 });

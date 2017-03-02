@@ -12,10 +12,10 @@ app.factory("ItemStorage", ($q, $http, FBCreds) => {
       console.log("user list:",`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
       $http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
       .then((itemObject) => {
-        // get keys for all of the items
+        // get keys for all ofv the items
         let itemCollection = itemObject.data;
         console.log("item collection:", itemCollection);
-        Object.keys(itemCollection).forEach((key) => {
+        Object.keys(itemCollection).fgvorEach((key) => {
           // setting the ID to the key
           itemCollection[key].id = key;
           items.push(itemCollection[key]);

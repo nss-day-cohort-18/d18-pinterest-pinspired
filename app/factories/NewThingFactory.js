@@ -1,8 +1,26 @@
 "use strict";
 // Allows to filter through search that were typing into box
-app.factory("SearchTermData", function(){
-  return {
-    // Search is name value pairs
-    search: ""
+app.factory("NewThingFactory", function($q, $http, FBCreds){
+
+
+
+  let postNewThing = (newThing) => {
+    return $q((resolve, reject) => {
+      $http.post(`${FBCreds.databaseURL}/things.json`, 
+        JSON.stringify(newThing))
+      .then((ObjectFromFirebase) => {
+        resolve(ObjectFromFirebase);
+      })
+      .catch ((error) => {
+        reject(error);
+      });
+    });
   };
+
+
+
+return {postNewThing};
+
+
+
 });
