@@ -45,6 +45,7 @@ app.config(function($routeProvider) {
     controller: 'NewThingCtrl'
     // resolve: {isAuth}
     }).
+  // WORKS
   when('/hoardist/newhoard', {
     templateUrl: "partials/new-hoard.html",
     controller: 'NewHoardCtrl'
@@ -52,17 +53,17 @@ app.config(function($routeProvider) {
   }).
   when('/hoardist/:thingId', {
     templateUrl: "partials/view-thing.html",
-    controller: 'ViewThingCtrl'
-    // resolve: {isAuth}
+    controller: 'ViewThingCtrl',
+    resolve: {isAuth}
   }).
   when('/hoardist/:thingId/edit', {
     templateUrl: 'partials/thing-edit.html',
     controller: 'ThingEditCtrl'
     // resolve: {isAuth}
   }).
-  when('/hoardist/allhoardslist',{
+  when('/hoardist/allhoards',{
     // goes to ng-view
-    templateUrl: "partials/view-all-hoards.html",
+    templateUrl: "partials/viewAllHoards.html",
     controller: 'ViewAllHoardsCtrl'
     // resolve: {isAuth}
   }).
