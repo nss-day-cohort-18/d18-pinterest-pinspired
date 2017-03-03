@@ -2,30 +2,22 @@
 // Allows to filter through search that were typing into box
 app.factory("ViewAllHoardsFactory", function($q, $http, FBCreds){
 
+	let getAllHoards = (userId) => {
+		return $q((resolve, reject) => {
+		  $http.get(`${FBCreds.databaseURL}/hoards.json?orderBy="uid"&equalTo="${userId}'`)
+		  .then((hoardsObject) => {
+		    resolve(hoardsObject);
+		    console.log(hoardsObject);
+		    })
+		  .catch((error) => {
+		    reject(error);
+		    });
+		});
+	};
 
-let getUserHoards = (userId) => {
-return $q ((resolve, reject) => {
-  $http.get(`'https://charm-aadb5.firebaseio.com/hoards.json?orderBy="uid"&equalTo="${userId}'`)
-  .then((hoardsObject) => {
+return {getAllHoards};
 
-
-    resolve(hoardsObject);
-    console.log(hoardsObject);
-    })
-  .catch((error) => {
-    reject(error);
-
-    });
-  });
-}
-//   let getAllHoards
-
-
-
-
-// return {getAllHoards};
-
-
+});
 
 	// let getItemList = (user) => {
 	// 	let items = [];
@@ -44,6 +36,3 @@ return $q ((resolve, reject) => {
 	// 		});
 	// 	});
 	// };
-
-
-});
