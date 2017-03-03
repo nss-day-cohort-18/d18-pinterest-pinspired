@@ -20,7 +20,6 @@ app.controller("NewHoardCtrl", function($scope, $location, AuthFactory, NewHoard
 
 
   $scope.newHoard = {
-    // hoardId: "",
     userId: user,
     title: ""
   };

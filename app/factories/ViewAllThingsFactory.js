@@ -25,7 +25,7 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
     })
     };
     return {getThings}
-   })
+   });
   // pass new item so it can post it to firebase
   // let postNewItem = (newItem) => {
   //   return $q((resolve, reject) => {

@@ -28,6 +28,6 @@ app.controller("SaveThingToHoardCtrl", function($scope, $location, AuthFactory){
   //   title: ""
   // };
 
-// hoardId: ??? userId.something ???
+
 
 });
