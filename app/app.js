@@ -48,8 +48,8 @@ app.config(function($routeProvider) {
   // WORKS
   when('/hoardist/newhoard', {
     templateUrl: "partials/new-hoard.html",
-    controller: 'NewHoardCtrl'
-    // resolve: {isAuth}
+    controller: 'NewHoardCtrl',
+    resolve: {isAuth}
   }).
   when('/hoardist/allhoardslist',{
     // goes to ng-view

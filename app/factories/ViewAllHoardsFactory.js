@@ -4,7 +4,9 @@ app.factory("ViewAllHoardsFactory", function($q, $http, FBCreds){
 
 	let getAllHoards = (userId) => {
 		return $q((resolve, reject) => {
-		  $http.get(`${FBCreds.databaseURL}/hoards.json?orderBy="uid"&equalTo="${userId}'`)
+		  $http.get(`${FBCreds.databaseURL}/hoards.json?orderBy="userId"&equalTo="${userId}"`)
+
+
 		  .then((hoardsObject) => {
 		    resolve(hoardsObject);
 		    console.log(hoardsObject);
@@ -36,3 +38,8 @@ return {getAllHoards};
 	// 		});
 	// 	});
 	// };
+
+
+
+
+//https://charm-aadb5.firebaseio.com/hoards.json?orderBy="userId"&equalTo="BNPuzFUyszP8XmgSo3jJrvRbaMW2"

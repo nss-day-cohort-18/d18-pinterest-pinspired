@@ -6,8 +6,14 @@ app.controller("NewHoardCtrl", function($scope, $location, AuthFactory, NewHoard
   $scope.title ="Add a new hoard";
   $scope.btnText = "Add It!"; 
 
+  $scope.newHoard = {
+      userId: user
+      };
+
   // function for adding new item to new task
   $scope.addNewHoard = function(){
+    console.log("user", user);
+
     console.log("add new hoard");
     // created obj up on page, now using it here
     NewHoardFactory.postNewHoard($scope.newHoard)
@@ -19,10 +25,6 @@ app.controller("NewHoardCtrl", function($scope, $location, AuthFactory, NewHoard
   };
 
 
-  $scope.newHoard = {
-    userId: user,
-    title: ""
-  };
 
 
 
