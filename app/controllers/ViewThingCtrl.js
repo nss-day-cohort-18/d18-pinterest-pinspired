@@ -5,7 +5,7 @@ $scope.things = [];
 
 let user = AuthFactory.getUser();
 
-ViewThingFactory.getThings(user)
+ViewThingFactory.getSingleThing(user)
 .then(function(thingCollection){
   $scope.things = thingCollection;
 

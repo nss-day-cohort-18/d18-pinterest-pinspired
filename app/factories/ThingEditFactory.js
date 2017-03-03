@@ -3,6 +3,7 @@
 app.factory("ThingEditFactory", ($q, $http, FBCreds) => {
 
   let updateThing = (thingId, editedThing) => {
+    console.log("thingId, editedThing", thingId, editedThing);
     // Properties with leading $$ characters will be stripped since AngularJS uses these internally
     return $q(function(resolve, reject){
       $http.patch(`${FBCreds.databaseURL}/things/${thingId}.json`,

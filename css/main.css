@@ -1,9 +1,9 @@
 .hoardistText {
 	font-family: 'Permanent Marker', cursive;
 	text-align: center;
-	font-size: 6em;
-	margin: .5em;
-	padding: 1em;
+	font-size: 8em;
+	margin-bottom: 1em;
+	padding: 0;
 }
 
 
@@ -33,6 +33,7 @@
 
 .hoardThingCard {
 	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 2em;
+	font-size: 3em;
 	text-align: center;
+	padding: .5em;
 }

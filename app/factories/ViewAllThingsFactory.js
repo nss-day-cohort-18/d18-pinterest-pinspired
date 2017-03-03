@@ -6,23 +6,33 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
   let getAllThings = () => {
     console.log("this should fire");
     // Make something to hold items from firebase database
-    // let items = [];
+    let things = [];
 
     return $q((resolve, reject) => {
       // plug in url, we want it to evaluate on (user uid)
       // console.log("user list:",`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`);
       $http.get(`https://charm-aadb5.firebaseio.com/things.json`)
-      .then((pinsObject) => {
+      .then((thingObject) => {
+        console.log("thingObject: ", thingObject);
+        let thingCollection = thingObject.data;
+        let keys1 = Object.keys(thingCollection)
+        console.log("thingCOllection", thingCollection);
+        console.log("keys1", keys1);
+        keys1.forEach((key) => {
+          thingCollection[key].id = key;
+          things.push(thingCollection[key]);
+          console.log("thingCollection[key]", thingCollection[key]);
 
-        resolve(pinsObject);
-        console.log(pinsObject);
+        resolve(thingObject);
+        console.log(thingObject);
       })
       .catch((error) => {
         reject(error);
 
       });
     });
-    };
+    });
+  };
     return {getAllThings};
    });
   // pass new item so it can post it to firebase
