@@ -31,18 +31,18 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
     });
    };
   // pass new item so it can post it to firebase
-  let postNewItem = (newItem) => {
-    return $q((resolve, reject) => {
-      // Tell it to which collecton to post it to
-      $http.post(`${FBCreds.databaseURL}/items.json`,
-        JSON.stringify(newItem))
-      .then((ObjectFromFirebase) => {
-        resolve(ObjectFromFirebase);
-      })
-      // insead of success/error. with angular we use catch/error
-      .catch((error) => {
-        reject(error);
-      });
-    });
-  };
+  // let postNewItem = (newItem) => {
+  //   return $q((resolve, reject) => {
+  //     // Tell it to which collecton to post it to
+  //     $http.post(`${FBCreds.databaseURL}/items.json`,
+  //       JSON.stringify(newItem))
+  //     .then((ObjectFromFirebase) => {
+  //       resolve(ObjectFromFirebase);
+  //     })
+  //     // insead of success/error. with angular we use catch/error
+  //     .catch((error) => {
+  //       reject(error);
+  //     });
+  //   });
+  // };
 });

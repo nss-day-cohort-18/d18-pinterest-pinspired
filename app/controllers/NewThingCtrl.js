@@ -21,7 +21,6 @@ app.controller("NewThingCtrl", function($scope, $location, AuthFactory, NewThing
 
 
   $scope.newThing = {
-    thingId: "",
     userId: user,
     title: "",
     URL: ""

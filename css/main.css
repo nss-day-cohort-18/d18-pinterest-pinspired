@@ -25,5 +25,7 @@
 	/*vertical-align: center;*/
 	border: .25em solid yellow;
 	padding: 2em;
+	max-width: 50%;
+	margin: 0 auto;
 
 }
