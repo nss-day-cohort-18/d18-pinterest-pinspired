@@ -58,7 +58,7 @@ app.controller("UserCtrl", function($scope, $window, AuthFactory, $location){
 	    	console.log("logged in user:", user);
 	    	//Once logged in, go to another view
 	    	// $location.path("/login-details");
-	    	$location.path("/hoardist/allthingslist");
+	    	$location.path("/hoardist/allthingslist"); //does this need the #! before it?
 	    	$scope.$apply();
 	  	}).catch(function(error) {
 	    	// Handle the Errors.

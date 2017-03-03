@@ -3,7 +3,7 @@
 //$q is how we will make our database calls, returns promise
 app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
 
-  let getThings = () => {
+  let getAllThings = () => {
     console.log("this should fire");
     // Make something to hold items from firebase database
     // let items = [];
@@ -14,7 +14,6 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
       $http.get(`https://charm-aadb5.firebaseio.com/things.json`)
       .then((pinsObject) => {
 
-
         resolve(pinsObject);
         console.log(pinsObject);
       })
@@ -22,9 +21,9 @@ app.factory("ViewAllThingsFactory", ($q, $http, FBCreds) => {
         reject(error);
 
       });
-    })
+    });
     };
-    return {getThings}
+    return {getAllThings};
    });
   // pass new item so it can post it to firebase
   // let postNewItem = (newItem) => {
