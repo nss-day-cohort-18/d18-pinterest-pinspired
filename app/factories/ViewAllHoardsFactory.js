@@ -3,7 +3,21 @@
 app.factory("ViewAllHoardsFactory", function($q, $http, FBCreds){
 
 
+let getUserHoards = (userId) => {
+return $q ((resolve, reject) => {
+  $http.get(`'https://charm-aadb5.firebaseio.com/hoards.json?orderBy="uid"&equalTo="${userId}'`)
+  .then((hoardsObject) => {
 
+
+    resolve(hoardsObject);
+    console.log(hoardsObject);
+    })
+  .catch((error) => {
+    reject(error);
+
+    });
+  });
+}
 //   let getAllHoards
 
 
@@ -33,4 +47,3 @@ app.factory("ViewAllHoardsFactory", function($q, $http, FBCreds){
 
 
 });
-
