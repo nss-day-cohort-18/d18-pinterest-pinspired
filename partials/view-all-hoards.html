@@ -2,6 +2,7 @@
 <div class="row">
   <div class="col-md-3" ng-repeat="hoard in hoards | filter: searchText.search">
     <div class="thumbnail hoardThingCard">{{hoard.title}}
+    <img ng-src="{{hoard.URL}}" alt="...">
       <div class="caption">
 <!--         <p><a href="#" class="btn btn-primary" role="button">view things!</a></p> -->
       </div>

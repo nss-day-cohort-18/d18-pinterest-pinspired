@@ -3,16 +3,17 @@
           <div class="mainText">
             <div>
             <label>update thing title:</label>
-              <input type="text" class="" placeholder="thing i like..." ng-model="newThing.title" />
+              <input type="text" class="" placeholder={{thing.title}} ng-model="newThing.title" />
             </div>
+            <div ng-model="thingId">{{thing.id}}</div>
             <div>
             <label>update thing URL:</label>
-              <input type="text" class="form-control" placeholder="http://..." ng-model="newThing.URL" />
+              <input type="text" class="form-control" placeholder={{thing.URL}} ng-model="newThing.URL" />
             </div>
            
             </div>
             <!-- TODO: bind this button to a function -->
-            <button class="btn btn-default" ng-click="updateThing()">{{btnText}}</button>
+            <button class="btn btn-default" ng-click="submitThingEdit()" ng-href="#!/hoardist/{{thing.id}}/edit">{{btnText}}</button>
           </div>
 </div>
 

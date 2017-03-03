@@ -57,16 +57,16 @@ app.config(function($routeProvider) {
     controller: 'ViewAllHoardsCtrl',
     resolve: {isAuth}
   }).
-    // when('/hoardist/:thingId', {
-  //   templateUrl: "partials/view-thing.html",
-  //   controller: 'ViewThingCtrl',
-  //   resolve: {isAuth}
-  // }).
-  // when('/hoardist/:thingId/edit', {
-  //   templateUrl: 'partials/thing-edit.html',
-  //   controller: 'ThingEditCtrl'
-  //   // resolve: {isAuth}
-  // }).
+    when('/hoardist/:thingId', {
+    templateUrl: "partials/view-thing.html",
+    controller: 'ViewThingCtrl',
+    resolve: {isAuth}
+  }).
+  when('/hoardist/:thingId/edit', {
+    templateUrl: 'partials/thing-edit.html',
+    controller: 'ThingEditCtrl',
+    resolve: {isAuth}
+  }).
   when('/hoardist/:hoardId', {
     templateUrl: "partials/view-hoard.html",
     controller: 'ViewHoardCtrl'
@@ -74,6 +74,11 @@ app.config(function($routeProvider) {
   }).
   when('/hoardist/:hoardId/edit', {
     templateUrl: 'partials/hoard-edit.html',
+    controller: 'HoardEditCtrl'
+    // resolve: {isAuth}
+     }).
+  when('/hoardist/:hoardId/editedthing', { //make this work
+    templateUrl: 'partials/view-all-things.html',
     controller: 'HoardEditCtrl'
     // resolve: {isAuth}
   }).
