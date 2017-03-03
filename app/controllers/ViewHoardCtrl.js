@@ -6,7 +6,7 @@ $scope.hoards = [];
 
 let user = AuthFactory.getUser();
 
-ViewHoardFactory.getHoards(user)
+ViewHoardFactory.getSingleHoard(user)
 .then(function(hoardCollection){
   $scope.hoards = hoardCollection;
 

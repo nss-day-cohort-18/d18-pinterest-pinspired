@@ -4,6 +4,7 @@ app.factory("NewHoardFactory", function($q, $http, FBCreds){
 
 
   let postNewHoard = (newHoard) => {
+    console.log("newHoard: ", newHoard);
     return $q((resolve, reject) => {
       $http.post(`${FBCreds.databaseURL}/hoards.json`, 
         JSON.stringify(newHoard))

@@ -8,6 +8,7 @@ console.log("HI");
 
   $scope.hoards = [];
   $scope.allHoards = function(){
+    console.log("userId", userId);
     ViewAllHoardsFactory.getAllHoards(userId)
     .then((hoardsObj) => {
       console.log(hoardsObj);
@@ -15,7 +16,7 @@ console.log("HI");
 
     let keys = Object.keys(data);
     for (var i = 0; i < keys.length; i++) {
-      data(keys[i]);
+      data[keys[i]];
         $scope.hoards.push(hoardsObj.data[keys[i]]);
 
 
